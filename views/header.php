@@ -4,138 +4,95 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Header | Shoes Shop</title>
-	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="../js/jquery.min.js"></script>
-	<!-- Custom Theme files -->
-	<!--theme-style-->
-	<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!--//theme-style-->
-	<link rel="stylesheet" href="../css/etalage.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Header </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Sport Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-	<script type="application/x-javascript"> 
-		addEventListener("load", function() { 
-			setTimeout(hideURLbar, 0); 
-		}, false); 
-		function hideURLbar(){
-			window.scrollTo(0,1);
-		}
-	</script>
-	<!--fonts-->
-	<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<!--//fonts-->
-	<style type="text/css" media="screen">
-	#title-product{
-		border-bottom: 5px double #d2232a;
-	}
-	#content-8{
-		border-right: 2px solid  #d2232a;
-	}
-	.jumbotron1{
-		background:white;
-		width: 400px;
-	}
-	.jumbotron img{
-		padding: 0px;
-	}
-	.jumbotron #jum1{
-		padding:3px 0px;
-	}
-</style>
+	<meta name="keywords" content="" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="../bootstrap/css/style.css" crossorigin="anonymous" >
+	<script src="../bootstrap/js/jquery-3.3.1.min.js"></script>
 </head>
 <body> 
 	<!--header-->
-	<div class="line">
-
-	</div>
-	<div class="header">
-		<div class="logo">
-			<a href="../index.php">
-				<img src="../images/logo.png" alt="" class="img-circle" height="100px" width="150px">
+	<div class="container-fluid">
+		<nav class=" navbar navbar-dark bg-dark">
+			<!-- Navbar content -->
+			<a class="navbar-brand" href="../">
+				<img src="/" width="30" height="30" class="d-inline-block align-top" alt="">
+				ShoesShop
 			</a>
-		</div>
-		<div  class="header-top">
-			<div class="header-grid">
-				<ul class="header-in">
-					<?php 
-					if(isset($_SESSION['name']) && isset($_SESSION['id']) && isset($_SESSION['role']))
-					{
-						?>
-						<li><a href='profile.php'><?=$_SESSION['name']?></a></li>
-						<li><a href='logout.php'>Đăng xuất</a></li>
-						<?php
-					}else{
-						?>
-						<li ><a href='account.php'>Đăng nhập</a> </li>
-						<li ><a href='register.php'>Đăng ký</a> </li>
-						<?php
-					}
-					?>		
-				</ul>
-				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form>
-							<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
-				<!-- search-scripts -->
-				<script src="../js/classie.js"></script>
-				<script src="../js/uisearch.js"></script>
-				<script>
-					new UISearch(document.getElementById( 'sb-search' ));
-				</script>
-				<!-- //search-scripts -->
-
-				<div class="online">
-					<?php
-					if(isset($_SESSION['role']) && ($_SESSION['role'] == '1')){
-						?>
-						<a href="admin.php">ADMIN</a>
-						<?php
-					}else{
-						?>
-						<a href="product.php">Sản Phẩm</a>
-						<?php
-					}
+			<ul class="nav nav-pills">
+				<?php 
+				if(isset($_SESSION['name']) && isset($_SESSION['id']) && isset($_SESSION['role']))
+				{
 					?>
-				</div>
-
-				<div class="clearfix"> </div>
-			</div>
-			<div class="header-bottom">
-				<div class="h_menu4"><!-- start h_menu4 -->
-					<a class="toggleMenu" href="#">Menu</a>
-					<ul class="nav">
-						<li class="nav">
-							<a href="">ADMIN</a>
-							<ul>
-								<li><a href="admin.php">Products</a></li>
-								<li><a href="">Users</a></li>
-							</ul>
-						</li>	
-						<li><a href="abouts.php">Giới thiệu</a></li>
-						<li><a href="contact.php">Liên hệ</a></li>
-					</ul>
-					<script type="text/javascript" src="../js/nav.js"></script>
-				</div><!-- end h_menu4 -->
-				<!-- cart -->
-				<div class="col-md-2 col-md-offset-6 h_menu4">
-					<ul class="nav">
-						<li><a href="checkout.php" title=""><span class="glyphicon glyphicon-shopping-cart"></span > Giỏ hàng <span id="sumCart">0</span></a></li>
-					</ul>
-				</div>
-				<!-- end cart -->
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<!---->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="profile.php" role="menu" aria-haspopup="true" aria-expanded="false">
+							<?=$_SESSION['name']?>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="../controller/c_profile.php">Thông tin cá nhân</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="../controller/c_changePass.php">Đổi mật khẩu</a>
+						</div>
+					</li>
+					<?php if($_SESSION['role']=="1"): ?>
+						<li class="nav-item">
+							<a class="nav-link" href='../controller/c_adminProducts.php'>Admin</a>
+						</li>
+					<?php endif; ?>
+					<li class="nav-item">
+						<a class="nav-link" href='../controller/c_logout.php'>Đăng xuất</a>
+					</li>
+					<?php
+				}else{
+					?>
+					<li class="nav-item"><a class="nav-link" href='../controller/c_login.php'>Đăng nhập</a> </li>
+					<li class="nav-item"><a class="nav-link" href='../controller/c_register.php'>Đăng ký</a> </li>
+					<?php
+				}
+				?>	
+			</ul>
+		</nav>
+		<nav class="navbar navbar-dark bg-dark">
+			<ul class="nav nav-tabs card-header-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" href="../index.php">Home</a>
+				</li>
+				<?php 
+				if(	isset($_SESSION['id'])  && isset($_SESSION['name']) && isset($_SESSION['role'])):
+					require_once("../model/m_cart.php");
+					$m_cart=new M_Cart();
+					$countCart=$m_cart->countCart($_SESSION["id"]);
+				?>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Đơn mua</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="../controller/c_checkOut.php?status=0">Đã hủy</a>
+						<a class="dropdown-item" href="../controller/c_checkOut.php?status=3">Đã giao</a>
+						<a class="dropdown-item" href="../controller/c_checkOut.php?status=2">Đang giao</a>
+						<a class="dropdown-item" href="../controller/c_checkOut.php?status=1">Đang xác nhận</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="../controller/c_checkOut.php">Tất cả</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../controller/c_cart.php">Giỏ hàng <?="(".$countCart['total'].")"?></a>
+				</li>
+			<?php endif; ?>
+			<li class="nav-item">
+				<a class="nav-link" href="#abouts">Giới thiệu</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#contact">Liên hệ</a>
+			</li>
+		</ul>
+		<form action="../controller/c_search.php" class="form-inline my-2 my-lg-0" method="GET">
+			<input class="form-control mr-sm-2" name="search" id="search"	type="search" placeholder="Nhập tên sản phẩm" aria-label="Search" required>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+		</form>
+	</nav>

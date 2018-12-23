@@ -25,6 +25,12 @@
             return "Vui lòng nhập email!";
         }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             return "Email không hợp lệ!";
+        }else{
+            $mUser = new M_User();
+            $had = $mUser->queryEmail($email);
+            if($had == 1){
+                return "Email đã tồn tại!";
+            }
         }
         return null;
     }
@@ -38,7 +44,7 @@
         if (empty($pass2)){
             return "Vui lòng nhập lại mật khẩu!";
         }elseif((strcmp($pass, $pass2)) != 0){
-            return "Nhập lại mật khẩu không chính xác!";
+            return "Nhập lại mật khẩu không đúng!";
         }
         return null;
     }
