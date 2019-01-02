@@ -1,13 +1,15 @@
 <?php
-    include_once('m_user.php');;
-    class Validation{
-        function checkUserName($userName){
+include_once('m_user.php');;
+class Validation{
+    function checkUserName($userName){
         //check name
         if (empty($userName)){
             return "Vui lòng nhập tài khoản!";
         }else{
+            
             $mUser = new M_User();
             $had = $mUser->queryUserName($userName);
+
             if($had == 1){
                 return "Tài khoản đã tồn tại!";
             }
@@ -48,10 +50,12 @@
         }
         return null;
     }
+    //hacker insert js vafo database
     function test_input($data) {
          $data = trim($data);
          $data = stripslashes($data);
          $data = htmlspecialchars($data);
          return $data;
     }
+
 }?>

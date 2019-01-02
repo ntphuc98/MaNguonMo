@@ -16,16 +16,16 @@
 
 			}
 		}
-		
+
 		if(($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST["update"])){
 			$ok = $m_cart->updateCart($_POST["idcart"], $_POST["size"], $_POST["amount"]);
 			if($ok){
-				
+
 			}
-			
+
 		}
 		$data = $m_cart->queryAllCart($idUser);
-		
+
 		if(($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST["submitOrder"])){
 			$phone = $_POST["phone"];
 			$address = $_POST["address"];
@@ -37,13 +37,19 @@
 			}
 			header("location:c_checkOut.php");
 		}
-		
-		require_once("../views/cart.php");
+		if($data == false){
+			echo '<hr><div class="alert alert-info col-md-4 offset-4" role="alert">
+			Không có sản phẩm trong giỏ hàng!
+			</div>';
+		}else{
+			require_once("../views/cart.php");
+		}
+
 		require_once("../views/footer.php");
 	}
-?>
+	?>
 	<script type="text/javascript">
-	    $(document).ready(function() {
-	        document.title = 'Giỏ hàng';
-	    });
-	</script>
+		$(document).ready(function() {
+			document.title = 'Giỏ hàng';
+		});
+</script>

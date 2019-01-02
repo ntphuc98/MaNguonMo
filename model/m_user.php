@@ -1,5 +1,5 @@
 <?php 
-	require_once('common/database.php');
+require_once('common/database.php');
 
 class M_User extends Database
 {	
@@ -28,17 +28,23 @@ class M_User extends Database
 		}
 	}
 	function queryUserName($_userName){
+		//kiem tra username trong database
 		$_userName = trim($_userName);
+		//cat khoang trang 2 dau
 		$conn = parent::getConn();
 		$stmt = null;
 		try {
 			$stmt = $conn->prepare("SELECT username FROM users WHERE username=:username");
+
 			$stmt->bindValue(":username", $_userName);
+
 			$stmt->execute();
+
 		}catch(PDOException $e){
 	    	echo "QueryUserName failed: " . $e->getMessage();
 	    }
-	    if($stmt->rowCount() == 0){ //không có
+
+	    if( $stmt->rowCount() == 0 ){ //không có
 	    	$stmt=null;
 	    	$conn=null;
 	    	return 0;
@@ -48,7 +54,8 @@ class M_User extends Database
 		    return 1;
 		}
 	}
-	function queryEmail($_email){
+	function queryEmail( $_email ){
+		//mần ci? email tồn tại hay chưa
 		$_email = trim($_email);
 		$conn = parent::getConn();
 		$stmt = null;
@@ -56,6 +63,7 @@ class M_User extends Database
 			$stmt = $conn->prepare("SELECT email FROM users WHERE email=:email");
 			$stmt->bindValue(":email", $_email);
 			$stmt->execute();
+			
 		}catch(PDOException $e){
 	    	echo "QueryEmail failed: " . $e->getMessage();
 	    }
@@ -144,7 +152,7 @@ class M_User extends Database
 		$stmt = null;
 		try {
 			$stmt = $conn->prepare('INSERT INTO users (name, username, email, sex, birthday, phone, address, password, vkey) VALUES ( N'.'?'.', ?, ?, ?, ?, ?, ?, ?, ?)');
-			$stmt->execute($userArr);
+			$stmt->execute( $userArr );
 			$stmt=null;
 			$conn=null;
 			return true;

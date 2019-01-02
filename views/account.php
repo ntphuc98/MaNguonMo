@@ -19,7 +19,7 @@
 					<form action="" method="POST">
 						<div class="form-group"> 	
 							<label>Tài khoản / Email: (*) </label>
-							<input type="text" class="form-control" name="login" id='login' placeholder="Nhập tài khoản" minlength=6 maxlength="50" required/> 
+							<input type="text" class="form-control" name="login" id='login' placeholder="Nhập tài khoản / email" minlength=6 maxlength="50" required/> 
 							<?php 
 								if(isset($loginErr)){
 									?>

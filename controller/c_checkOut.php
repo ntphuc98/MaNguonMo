@@ -15,8 +15,13 @@
 	}
 
 	$data = $m_order->queryOrdersUser($sql);
-
-	require_once("../views/checkOut.php");
+	if($data == false){
+			echo '<hr><div class="alert alert-info col-md-4 offset-4" role="alert">
+				Không có đơn mua!
+			</div>';
+	}else{
+		require_once("../views/checkOut.php");
+	}
 	require_once("../views/footer.php");
 ?>
 <script type="text/javascript">
