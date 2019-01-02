@@ -67,7 +67,7 @@
 							?>
 						</td>
 						<td>
-							<a href="?edit=<?=$row['id']?>"><input type="button" value="Edit"></a>
+							<a href="?edit=<?=$row['id']?>"><input type="button" class="btn btn-info" value="Edit"></a>
 						</td>
 					</tr>
 				<?php } endif; ?>

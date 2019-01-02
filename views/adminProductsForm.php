@@ -50,7 +50,7 @@ if(isset($data) && $data != false):
 							</div>
 							<div class="form-group">
 								<label for="describes">Describes: </label>
-								<textarea class="form-control" name="describes" id="describes" placeholder="Nhập mô tả" required></textarea>
+								<textarea class="form-control" name="describes" id="describes" placeholder="Nhập mô tả" required value=""></textarea>
 							</div>
 							<div class="form-group">
 								<label for="phone">Creation time: </label>

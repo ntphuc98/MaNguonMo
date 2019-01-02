@@ -57,7 +57,7 @@
 							?>
 						</td>
 						<td>
-							<a href="?edit=<?=$row['idorder']?>"><input type="button" value="Edit"></a>
+							<a href="?edit=<?=$row['idorder']?>"><input type="button" class="btn btn-info" value="Edit"></a>
 						</td>
 					</tr>
 				<?php } endif; ?>

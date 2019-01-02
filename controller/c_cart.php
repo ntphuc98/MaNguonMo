@@ -35,7 +35,7 @@
 				$m_oders->insertOrders(array($row["iduser"], $row["idproduct"], $row["size"], $row["amount"], $address, $phone ));
 				$m_cart->deleteIdCart($row["idcart"]);
 			}
-			header("location:c_checkOut.php");
+			header("location:c_checkOut.php?status=1");
 		}
 		if($data == false){
 			echo '<hr><div class="alert alert-info col-md-4 offset-4" role="alert">

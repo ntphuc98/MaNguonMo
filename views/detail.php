@@ -6,12 +6,11 @@
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Thông tin sản phẩm</a>
 							<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mô tả</a>
-							<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Nhận xét</a>
 						</div>
 					</nav>	
 				</div>
 				<div class="tab-content" id="nav-tabContent">
-					<?php if (isset($data)) { ?>
+					<?php if (isset($data)): ?>
 						<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 							<div class="detail-product">
 								<div class="col-md-7 float-left">
@@ -46,8 +45,7 @@
 							</div>
 						</div>
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><p><?=$data['describes']?></p></div>
-						<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-					<?php } ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

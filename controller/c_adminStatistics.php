@@ -20,6 +20,7 @@
 	$countUsers = $m_statistics->queryCountUsers() ;
 	$countAdminUsers = $m_statistics->queryCountAdminUsers();
 	$countCustomerUsers = $m_statistics->queryCountCustomerUsers();
+	
 	require_once("../views/adminStatistics.php");
 	require_once("../views/footer.php");
 ?>

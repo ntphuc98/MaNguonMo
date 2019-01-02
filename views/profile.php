@@ -10,7 +10,7 @@
 						<form action="" method="POST" >
 							<div class="form-group">
 								<label for="name">Họ tên: </label>
-								<input type="text" class="form-control" name="name" id='name' minlength="6" maxlength="100">
+								<input type="text" class="form-control" name="name" id='name' minlength="6" maxlength="50">
 							</div>
 							<div class="form-group">
 								<label for="username">Tài khoản: </label>

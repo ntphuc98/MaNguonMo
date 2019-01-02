@@ -19,16 +19,20 @@
 					<div class="form-group"> 	
 						<label>Họ tên: (*)</label>
 						<input type="text" class="form-control" name="name" id="name" required minlength=10 maxlength="50" placeholder="Nhập họ tên">
+
 						<?php if (isset($nameErr)):?>
 								<span class='text-danger'><?=$nameErr?></span>
-						<?php endif ?>
+						<?php endif; ?>
+
 					</div>
 					<div class="form-group"> 	
 						<label>Email: (*)</label>
-						<input type="email" class="form-control" name="email" id="email" required maxlength="100" placeholder="Nhập địa chỉ email"> 
+						<input type="email" class="form-control" name="email" id="email" required maxlength="100" placeholder="Nhập địa chỉ email">
+
 						<?php if (isset($emailErr)):?>
 								<span class='text-danger'><?=$emailErr?></span>
 						<?php endif ?>
+						
 					</div>
 					<div class="form-group"> 
 						<label >Mật khẩu: (*)</label>

@@ -1,3 +1,9 @@
+	<div class="row offset-2">
+		<a href="../controller/c_adminAddProduct.php"">
+			<button type="button" class="btn btn-outline-success ">Thêm sản phẩm</button>
+		</a>
+	</div>
+	<hr>
 	<div aria-label="breadcrumb"  class="breadcrumb">
 		<div class="col-md-4">
 			<h4 >Danh sách sản phẩm: <?=$total_record?></h4>
@@ -46,19 +52,19 @@
 				foreach ($data as $row) {
 					?>
 					<tr>
-						<td><?=$row["name"]?></d>
-							<td><?=$row["gender"]?></td>
-							<td><?=$row["types"]?></td>
-							<td><?=$row["cost"]?></td>
-							<td><?=$row["img"]?></td>
-							<td><?=$row["describes"]?></td>
-							<td><?=$row["crtime"]?></td>
-							<td><?=$row["updateTime"]?></td>
-							<td><a href="?edit=<?=$row['id']?>"><button type="button" class="btn btn-info">Edit</button> </a></td>
-						</tr>
-						<?php 
-					}
-				endif; ?>
-			</tbody>
-		</table>
-		<script src="../js/ajax.js" type="text/javascript"></script>
+						<td><a href="../controller/c_detail.php?id=<?=$row['id']?>"><?=$row["name"]?></a></td>
+						<td><?=$row["gender"]?></td>
+						<td><?=$row["types"]?></td>
+						<td><?=$row["cost"]?></td>
+						<td><?=$row["img"]?></td>
+						<td><?=$row["describes"]?></td>
+						<td><?=$row["crtime"]?></td>
+						<td><?=$row["updateTime"]?></td>
+						<td><a href="?edit=<?=$row['id']?>"><button type="button" class="btn btn-info">Edit</button> </a></td>
+					</tr>
+					<?php 
+				}
+			endif; ?>
+		</tbody>
+	</table>
+	<script src="../js/ajax.js" type="text/javascript"></script>
