@@ -33,21 +33,37 @@
 			$amout_ok = (int)$dataProductId['amount'] + (int)$dataAmountOrder['amount'];
 			//kiem tra so luong
 			if($amout_ok >= $_POST["amount"]){
-				//so luong update product
-				$amount_product = $amout_ok - (int)$_POST["amount"];
-				
-				$m_order->updateOrderAdmin(
-					array( 
-						$_POST["size"], 
-						$_POST["amount"], 
-						$_POST["phone"], 
-						$_POST["address"],
-						$_POST["status"],
-						$idOrder
-					)
-				);
-				$m_products->updateAmountProduct( $dataAmountOrder['idproduct'], $amount_product );
-					echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+				//huy don
+				if($_POST["status"] == "0" && $dataAmountOrder['status'] != "0"){
+					//so luong update product
+					$amount_product = $amout_ok;
+					$m_order->updateOrderAdmin(
+						array( 
+							$_POST["size"], 
+							$_POST["amount"],
+							$_POST["phone"], 
+							$_POST["address"],
+							$_POST["status"],
+							$idOrder
+						)
+					);
+					$m_products->updateAmountProduct( $dataAmountOrder['idproduct'], $amount_product );
+						echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+				}else{
+					$amount_product = $amout_ok - (int)$_POST["amount"];
+					$m_order->updateOrderAdmin(
+						array( 
+							$_POST["size"], 
+							$_POST["amount"], 
+							$_POST["phone"], 
+							$_POST["address"],
+							$_POST["status"],
+							$idOrder
+						)
+					);
+					$m_products->updateAmountProduct( $dataAmountOrder['idproduct'], $amount_product );
+						echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+				}
 			}else{
 					echo '<div class="col-md-4 offset-4 alert alert-danger" role="alert">Số lượng tối đa: '.$amout_ok.'</div>';
 			}

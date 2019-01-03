@@ -6,6 +6,7 @@
 		</div>
 		<div class="col-md-6 offset-2" id="filter">
 			<form action="" class="form-inline" method="GET">
+				<input type="text" name='search' value="<?=$_GET['search']?>" hidden>
 				<select name="gender" id="gender" class="form-control">
 				  	<option value="-1">Giới tính</option>
 				  	<option value="Nam">Nam</option>

@@ -22,9 +22,57 @@
 					$(document).ready(function() {
 					    	document.title="Tìm kiếm: '.$name_search.'";
 					    	$("#search").val("'.$name_search.'");
-					    	$("#filter").hide();
+					    	// $("#filter").hide();
 					    });
 					</script>';
+		//gioi tinh
+	if(isset($_GET["gender"]) && ($_GET["gender"]!="-1")){
+		$gender = $_GET["gender"];
+		$sql_total .=  " AND gender=N'".$gender."'";
+		$sql .= " AND gender=N'".$gender."'";
+		$link.="gender=".$gender."&";
+		echo '<script type="text/javascript">
+			$(document).ready(function() {
+				$("#gender option[value=\''.$gender.'\']").attr("selected", "selected");
+				});
+				</script>';
+	}
+	//kieu giay
+	if(isset($_GET["types"]) && ($_GET["types"]!="-1")){
+		$types = $_GET["types"];
+		$sql_total .=" AND types=N'".$types."'";
+		$sql .=" AND types=N'".$types."'";
+		$link.="types=".$types."&";
+		echo '<script type="text/javascript">
+			$(document).ready(function() {
+				$("#types option[value=\''.$types.'\']").attr("selected", "selected");
+				});
+				</script>';
+	}
+	//gia
+	if( isset($_GET["cost"]) && ($_GET["cost"] != "-1") ){
+		if($_GET["cost"] == "1"){
+			$sql_total .=" ORDER BY cost";
+			$sql .=" ORDER BY cost";
+			$link.="cost=1&";
+			echo '<script type="text/javascript">
+			$(document).ready(function() {
+				$("#cost option[value=1]").attr("selected", "selected");
+				});
+				</script>';
+		}
+		if($_GET["cost"] == "2"){
+			$link.="cost=2&";
+			$sql_total .=" ORDER BY cost DESC";
+			$sql .=" ORDER BY cost DESC";
+			echo '<script type="text/javascript">
+				$(document).ready(function() {
+					$("#cost option[value=2]").attr("selected", "selected");
+					});
+					</script>';
+		}
+	}
+	// ORDER BY tên-cột DESC //giam
 		//thuc thi dem so record
 		$total_row = $m_products->queryTotalProducts($sql_total);
 		$total_record = $total_row['total']; // tổng sô record trong ket qua

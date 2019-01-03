@@ -41,7 +41,7 @@
 			$conn = parent::getConn();
 			$stmt = null;
 			try {
-				$stmt = $conn->prepare("SELECT amount , idproduct FROM orders WHERE id=:id");
+				$stmt = $conn->prepare("SELECT amount , idproduct , status FROM orders WHERE id=:id");
 				$stmt->bindValue(":id", $idOrder);
 				$stmt->execute();
 			}catch(PDOException $e){
