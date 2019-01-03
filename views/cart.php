@@ -1,4 +1,6 @@
 
+<div class="alert alert-danger col-md-6 offset-md-3" id="amountTotal" style="display:none;">
+											Hiện tại chỉ có thể đặt số lượng tối đa <?php if(isset($amout_ok)) echo $amout_ok; ?> cho sản phẩm này!</div>
 <div class="col-md-12">
 	<table class="table table-hover">
 		<thead>
@@ -42,7 +44,7 @@
 								<?="<script>$('#size".$row['idcart']." option[value=".$row['size']."]').attr('selected', 'selected');</script>"?>
 							</td>
 							<td>
-								<input type="number" name="amount" id="amount" min="1" max="10" style="width: 45px;" value="<?=$row['amount']?>">
+								<input type="number" name="amount" id="amount" min="1" style="width: 45px;" value="<?=$row['amount']?>">
 							</td>
 							<td>
 								<?=number_format($row["amount"]*$row["cost"])?> đ

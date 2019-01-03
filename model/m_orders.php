@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98 
+-->
 <?php
 	require_once("common/database.php");
 	/**
@@ -23,6 +28,47 @@
 		    }
 		    if($stmt->rowCount() > 0){
 		    	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		    	$stmt=null;
+				$conn=null;
+				return $data;
+		    }else{
+				$stmt=null;
+				$conn=null;
+				return false;
+		    }
+		}
+		function queryAmountOrder($idOrder){
+			$conn = parent::getConn();
+			$stmt = null;
+			try {
+				$stmt = $conn->prepare("SELECT amount , idproduct FROM orders WHERE id=:id");
+				$stmt->bindValue(":id", $idOrder);
+				$stmt->execute();
+			}catch(PDOException $e){
+				echo "queryAmountOrder failed: " . $e->getMessage();
+		    }
+		    if($stmt->rowCount() > 0){
+		    	$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		    	$stmt=null;
+				$conn=null;
+				return $data;
+		    }else{
+				$stmt=null;
+				$conn=null;
+				return false;
+		    }
+		}
+		function queryTotalOrders($sql){
+			$conn = parent::getConn();
+			$stmt = null;
+			try {
+				$stmt = $conn->prepare($sql);
+				$stmt->execute();
+			}catch(PDOException $e){
+				echo "queryOrdersUser failed: " . $e->getMessage();
+		    }
+		    if($stmt->rowCount() > 0){
+		    	$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		    	$stmt=null;
 				$conn=null;
 				return $data;

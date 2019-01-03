@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php
 	require_once("../views/header.php");
 	require_once("../model/m_orders.php");
@@ -10,8 +15,16 @@
 		$sql.=" AND orders.status=".$_GET['status'];
 	}
 	
-	if ($_SERVER['REQUEST_METHOD'] == 'POST' &&	isset($_POST["cancel"])) {
-		$m_order->updateOrderUser($_POST["idorder"]);
+	if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["cancel"])) {
+
+		if($m_order->updateOrderUser($_POST["idorder"])){
+			require_once("../model/m_products.php");
+			$m_product = new M_Products();
+			$amount_total = $m_product->queryAmountProduct($_POST["idproduct"]);
+			$amount = $_POST["amount"] + $amount_total["amount"];
+			$m_product->updateAmountProduct($_POST["idproduct"], $amount);
+		}
+
 	}
 
 	$data = $m_order->queryOrdersUser($sql);

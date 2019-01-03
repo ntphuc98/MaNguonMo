@@ -1,5 +1,5 @@
-	<!-- Bài tập nhóm PHP
-Nguyễn Thanh Phúc - github.com/ntphuc98 -->
+<!-- Bài tập nhóm PHP
+	Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 
 	<?php
 	require_once("../views/header.php");
@@ -15,35 +15,61 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 	require_once("../views/navAdmin.php");
 
 	$m_products = new M_Products();
-
+	//edit product
 	if(isset($_GET["edit"])){
 		$idProduct = $_GET["edit"];
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update"])) {
-			$m_products->updateProducts(array(
-				$_POST["name"], 
-				$_POST["gender"], 
-				$_POST["types"], 
-				$_POST["cost"], 
-				$_POST["img"], 
-				$_POST["describes"],
-				$idProduct
-			));
-
-			echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+			//kiểm tra upload file hình ảnh
+			if(isset($_FILES["imgUpload"]) && ($_FILES["imgUpload"]["error"] == 0) ) {
+				require_once("c_uploadFile.php");
+				if(!isset($imgErr)){
+					$img = basename($_FILES["imgUpload"]["name"]);
+					$productArr = array(
+						$_POST["name"], 
+						$_POST["gender"], 
+						$_POST["types"], 
+						$_POST["amount"], 
+						$_POST["cost"], 
+						$img, 
+						$_POST["describes"],
+						$idProduct
+					);
+					$m_products->updateProducts($productArr);
+					echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+				}else{
+					echo $imgErr;
+				}
+			}else{
+				//get input
+				$productArr = array(
+					$_POST["name"], 
+					$_POST["gender"], 
+					$_POST["types"], 
+					$_POST["amount"], 
+					$_POST["cost"], 
+					$_POST["img"], 
+					$_POST["describes"],
+					$idProduct
+				);
+				$m_products->updateProducts($productArr);
+				echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Cập nhật thành công!</div>';
+			}
 		}
+		//delete product
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["delete"])) {
 			$m_products->deleteIdProducts($idProduct);
 			echo '<div class="col-md-4 offset-4 alert alert-success" role="alert">Xóa product thành công!</div>';
 		}
-		//lấy dữ liệu theo id
+		//lấy dữ liệu theo id, load product detail
 		$data = $m_products->queryDetails($idProduct);
-
 		require_once("../views/adminProductsForm.php");
-	}else{
+
+
+	}else{ //load all products
 		$sql = "SELECT * FROM shoesProducts WHERE 1=1";
 		$sql_total = "SELECT count(id) as total FROM shoesProducts WHERE 1=1";
 		$link = "";
-	//gioi tinh
+		//gioi tinh
 		if(isset($_GET["gender"]) && ($_GET["gender"]!="-1")){
 			$gender = $_GET["gender"];
 			$sql_total .=  " AND gender=N'".$gender."'";
@@ -55,7 +81,7 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 				});
 				</script>';
 			}
-	//kieu giay
+		//kieu giay
 			if(isset($_GET["types"]) && ($_GET["types"]!="-1")){
 				$types = $_GET["types"];
 				$sql_total .=" AND types=N'".$types."'";
@@ -67,7 +93,7 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 					});
 					</script>';
 				}
-	//gia
+			//gia
 				if( isset($_GET["cost"]) && ($_GET["cost"] != "-1") ){
 					if($_GET["cost"] == "1"){
 						$sql_total .=" ORDER BY cost";

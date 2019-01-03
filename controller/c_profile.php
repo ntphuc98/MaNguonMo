@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php
 	require_once('../views/header.php');
 	// kiểm tra user

@@ -33,9 +33,14 @@
 											<option value="44">44</option>
 										</select>
 										<label for="amount">Số lượng: </label>
-										<input type="number" name="amount" id="amount" min="1" max="10" value="1" style="width: 45px;">
+										<input type="number" name="amount" id="amount" min="1"  value="1" style="width: 45px;">
 										<br>
-										<div class="alert alert-danger" id="danger" style="display:none;">Bạn cần đăng nhập để mua hàng!</div>
+										<div class="alert alert-danger" id="had" style="display:none;">
+											Sản phẩm đã có trong giỏ hàng!</div>
+										<div class="alert alert-danger" id="danger" style="display:none;">
+											Bạn cần đăng nhập để mua hàng!</div>
+											<div class="alert alert-danger" id="amountTotal" style="display:none;">
+											Hiện tại chỉ có thể đặt tối đa <?php if(isset($amount_total['amount'])) echo $amount_total['amount']; ?> sản phẩm!</div>
 											<div class="alert alert-success" id="added" style="display:none;">
 												Thêm vào giỏ hàng thành công!
 											</div>

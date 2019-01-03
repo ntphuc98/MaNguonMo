@@ -1,5 +1,11 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php
 	require_once("../views/header.php");
+	//kiem tra login
 	if(!isset($_SESSION['id']) || !isset($_SESSION['name']) || !isset($_SESSION['role'])){
 		header('location:c_login.php');
 	}else{
@@ -12,16 +18,47 @@
 		$userInfo = $m_user->queryProfile($idUser);
 
 		if(($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST["delete"])){
+			//lay so luong , id cua san pham trong gio hang user
+			$amount_cart = $m_cart->queryIdCart($_POST["idcart"]);
+			//so luong cua san pham trong table product
+			require_once("../model/m_products.php");
+			$m_products = new M_Products();
+			$amount_total = $m_products->queryAmountProduct($amount_cart['idproduct']);
+			//tinh so luong cap nhat sau khi xoa
+			$amount_product = (int)$amount_total['amount'] + (int)$amount_cart['amount'];
 			if ($m_cart->deleteIdCart($_POST["idcart"]) ){
-
+				//sau khi xoa thanh cong cap nhat laji so luong san pham
+				$m_products->updateAmountProduct( $amount_cart['idproduct'], $amount_product );
 			}
 		}
 
 		if(($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST["update"])){
-			$ok = $m_cart->updateCart($_POST["idcart"], $_POST["size"], $_POST["amount"]);
-			if($ok){
+			//lay so luong , id cua san pham trong gio hang user
+			$dataCartId = $m_cart->queryIdCart($_POST["idcart"]);
+			//so luong cua san pham trong table product
+			require_once("../model/m_products.php");
+			$m_products = new M_Products();
+			$dataProductId = $m_products->queryAmountProduct($dataCartId['idproduct']);
+			//kiem tra so luong cap nhat voi so luong trong table products
+			$amout_ok = (int)$dataProductId['amount'] + (int)$dataCartId['amount'];
 
+			if(  $amout_ok >= $_POST["amount"]){
+				//tinh so luong cap nhat sau khi update
+				$amount_product = $amout_ok  - (int)$_POST["amount"];
+				//cap nhat cart
+				$ok = $m_cart->updateCart($_POST["idcart"], $_POST["size"], $_POST["amount"]);
+
+				if($ok){
+					// cap nhat product
+					$m_products->updateAmountProduct( $dataCartId['idproduct'], $amount_product );
+				}
+			}else{
+				echo "<script type='text/javascript' charset='utf-8' >
+							$(document).ready(function(){ $('#amountTotal').show(); 
+						});
+						</script>";
 			}
+			
 
 		}
 		$data = $m_cart->queryAllCart($idUser);

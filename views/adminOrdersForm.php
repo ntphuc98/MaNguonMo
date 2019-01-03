@@ -34,7 +34,7 @@
 									<?="<script>$('#size option[value=".$row['size']."]').attr('selected', 'selected');</script>"?>
 									<div class="form-group">
 										<label for="idproduct">Số lượng: </label>
-										<input class="form-control" type="number" name="amount" id="amount" min="1" max="10" style="width: 85px;" value="<?=$row['amount']?>">
+										<input class="form-control" type="number" name="amount" id="amount" min="1"  style="width: 85px;" value="<?=$row['amount']?>">
 									</div>
 									<div class="form-group">
 										<label for="phone">Số điện thoại: </label>

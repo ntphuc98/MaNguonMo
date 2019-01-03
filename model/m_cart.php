@@ -1,3 +1,9 @@
+
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php
 	require_once("common/database.php");
 
@@ -45,6 +51,27 @@
 		    	$stmt=null;
 				$conn=null;
 				return true;
+		    }else{
+				$stmt=null;
+				$conn=null;
+				return false;
+		    }
+		}
+		function queryIdCart($idCart){
+			$conn = parent::getConn();
+			$stmt = null;
+			try {
+				$stmt = $conn->prepare("SELECT * FROM carts  WHERE id=? LIMIT 1");
+				$stmt->bindValue(1, $idCart);
+				$stmt->execute();
+			}catch(PDOException $e){
+				echo "queryIdCart failed: " . $e->getMessage();
+		    }
+		    if($stmt->rowCount() > 0){
+		    	$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		    	$stmt=null;
+				$conn=null;
+				return $data;
 		    }else{
 				$stmt=null;
 				$conn=null;

@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php
 	session_start();
 	if (isset($_SESSION['name'])) 

@@ -2,15 +2,15 @@
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">ID</th>
-				<th scope="col">Name</th>
-				<th scope="col">UserName</th>
+				<th scope="col">Tên:</th>
+				<th scope="col">Tên tài khoản</th>
 				<th scope="col">Email</th>
-				<th scope="col">Sex</th>
-				<th scope="col">Birthday</th>
-				<th scope="col">Phone</th>
-				<th scope="col">Address</th>
-				<th scope="col">Verified</th>
-				<th scope="col">Role</th>
+				<th scope="col">Giới tính</th>
+				<th scope="col">Ngày sinh</th>
+				<th scope="col">Số điện thoại</th>
+				<th scope="col">Địa chỉ</th>
+				<th scope="col">Xác nhận</th>
+				<th scope="col">Quyền</th>
 				<th scope="col">Action</th>
 			</tr>
 		</thead>
@@ -36,7 +36,9 @@
 							<?=$row["sex"]?>
 						</td>
 						<td>
-							<?=$row['birthday']?>
+							<?php if($row['birthday']!=="0000-00-00") 
+							echo $row['birthday'];
+							?>
 						</td>
 						<td>
 							<?=$row['phone']?>

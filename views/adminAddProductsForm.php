@@ -1,5 +1,8 @@
-<!-- Bài tập nhóm PHP
-Nguyễn Thanh Phúc - github.com/ntphuc98 -->
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 
 	<div class="container">
 		<div class="row">
@@ -23,11 +26,11 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 								<label for="name">Tên: </label>
 								<input type="text" class="form-control" name="name" id='name' minlength="6" maxlength="100" placeholder="Nhập tên sản phẩm" required>
 							</div>
-							<!-- <div class="form-group">
+							<div class="form-group">
 								<label for="gender">Giới tính: </label>
 								<br/>
 								<label for="male">Nam</label>
-								<input type="radio" class="single-bottom" name="gender" id="male" value="Nam">
+								<input type="radio" class="single-bottom" name="gender" id="male" value="Nam" checked>
 								<label for="female">Nữ</label>
 								<input type="radio" class="single-bottom" name="gender" id="female" value="Nữ">
 							</div>
@@ -42,13 +45,17 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 								</select>
 							</div>
 							<div class="form-group">
+								<label for="amount">Số lượng:</label><br/>
+								<input type="number" class="form-control" name="amount" id='amount' min="1" value="1" required>
+							</div>
+							<div class="form-group">
 								<label for="cost">Giá: (VND)</label><br/>
 								<input type="number" class="form-control" name="cost" id='cost' placeholder="Nhập giá tiền" required>
 							</div>
 							<div class="form-group">
 								<label for="describes">Mô tả: </label>
 								<textarea class="form-control" name="describes" id="describes" placeholder="Nhập mô tả" required></textarea>
-							</div> -->
+							</div>
 							<div class="form-group">
 								<button type="submit" name="add" class="btn btn-success">Thêm</button>								
 							</div>
@@ -63,3 +70,8 @@ Nguyễn Thanh Phúc - github.com/ntphuc98 -->
 		document.title = 'Thêm sản phẩm';
 	});
 </script>
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->

@@ -1,3 +1,8 @@
+<!-- 
+    ** Bài tập nhóm PHP
+    ** Nguyễn Thanh Phúc 
+    ** github.com/ntphuc98
+-->
 <?php
 include_once('m_user.php');;
 class Validation{
@@ -25,7 +30,7 @@ class Validation{
     function checkEmail($email){
         if (empty($email)){
             return "Vui lòng nhập email!";
-        }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        }elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) ){
             return "Email không hợp lệ!";
         }else{
             $mUser = new M_User();
@@ -33,8 +38,8 @@ class Validation{
             if($had == 1){
                 return "Email đã tồn tại!";
             }
+            return null;
         }
-        return null;
     }
     function checkPass($pass){
         if (empty($pass)){
@@ -53,8 +58,8 @@ class Validation{
     //hacker insert js vafo database
     function test_input($data) {
          $data = trim($data);
-         $data = stripslashes($data);
-         $data = htmlspecialchars($data);
+         $data = stripslashes($data);   // \' thành '
+         $data = htmlspecialchars($data); // < thành &lt;
          return $data;
     }
 

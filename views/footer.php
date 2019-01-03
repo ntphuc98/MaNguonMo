@@ -14,9 +14,18 @@
 				</div>
 				<div class="col-md" id="contact">
 					<div class="hfoot">Giới Thiệu</div>
+					Website quản lý và bán giày.
+					Hãy đến với chúng tôi shop giày 5*shoes nơi nâng niu bàn chân bạn
 				</div>
 				<div class="col-md" id="abouts">
 					<div class="hfoot">Thông Tin Liên Hệ</div>
+					<p>
+						Email: ntphuc98it@gmail.com
+					</p>
+					<p>Github: github.com/ntphuc98</p>
+					<p>
+						Phone: 113
+					</p>
 				</div>
 			</div>
 		</div>

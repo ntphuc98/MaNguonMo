@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 	<?php 
 	$m_products = new M_Products();
 			//câu sql với từng kiểu

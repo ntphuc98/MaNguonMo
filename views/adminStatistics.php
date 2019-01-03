@@ -13,10 +13,6 @@
 				<td><?=$countProducts?></td>
 			</tr>
 			<tr>
-				<th scope="col">Tổng doanh thu:</th>
-				<td><?=$countRevenue?></td>
-			</tr>
-			<tr>
 				<th scope="col">Số đơn đã hủy:</th>
 				<td><?=$countCancelOrders?></td>
 			</tr>

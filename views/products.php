@@ -39,7 +39,7 @@
 								<div class="product">
 										<img src="../images/<?=$row['img']?>" alt="">
 										<div class="info-product">
-											<p class="cost-product"><?=$row['cost']?> đ</p>
+											<p class="cost-product"><?=$row['cost']?>đ</p>
 											<p class="name-product"><?=$row['name']?></p>
 										</div>
 								</div>

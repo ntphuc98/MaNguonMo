@@ -36,7 +36,7 @@
 							<?=$row['amount']?>
 						</td>
 						<td>
-							<?=number_format($row["amount"]*$row["cost"])?> đ
+							<?=number_format($row["amount"]*$row["cost"])?>đ
 						</td>
 						<td>
 							<?=$row['address']?>
@@ -64,6 +64,8 @@
 							<?php if($row['status'] == 1):?>
 								<form action="" method="POST">
 									<input type="number" name="idorder" value="<?=$row["idorder"]?>" hidden>
+									<input type="number" name="idproduct" value="<?=$row["idproduct"]?>" hidden>
+									<input type="number" name="amount" value="<?=$row["amount"]?>" hidden>
 									<input type="submit" name="cancel" value="Hủy">
 								</form>
 							<?php endif; ?>

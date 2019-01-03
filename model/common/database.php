@@ -1,3 +1,8 @@
+<!-- 
+	** Bài tập nhóm PHP
+	** Nguyễn Thanh Phúc 
+	** github.com/ntphuc98
+-->
 <?php 
 
 class Database 
@@ -9,7 +14,7 @@ class Database
 	private $sql = null;
 
 	function __construct(){
-		$this->url = 'mysql:host=localhost;dbname=shoeshop';
+		$this->url = 'mysql:host=localhost;dbname=ShoesStore';
 		$this->user = 'shoeshop';
 		$this->pass = '123456';
 		

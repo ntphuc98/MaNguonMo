@@ -35,15 +35,16 @@
 	<table class="table table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th scope="col">Name</th>
-				<th scope="col">Gender</th>
-				<th scope="col">Types</th>
-				<th scope="col">Cost</th>
-				<th scope="col">Img</th>
-				<th scope="col">Describes</th>
-				<th scope="col">CrTime</th>
-				<th scope="col">UpdateTime</th>
-				<th scope="col">Action</th>
+				<th scope="col">Tên</th>
+				<th scope="col">Giới tính</th>
+				<th scope="col">Kiểu giày</th>
+				<th scope="col">Giá</th>
+				<th scope="col">Số lượng </th>
+				<th scope="col">Hình ảnh</th>
+				<th scope="col">Mô tả</th>
+				<th scope="col">Ngày nhập</th>
+				<th scope="col">Sửa cuối</th>
+				<th scope="col">Hành động</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -56,6 +57,7 @@
 						<td><?=$row["gender"]?></td>
 						<td><?=$row["types"]?></td>
 						<td><?=$row["cost"]?></td>
+						<td><?=$row["amount"]?></td>
 						<td><?=$row["img"]?></td>
 						<td><?=$row["describes"]?></td>
 						<td><?=$row["crtime"]?></td>
