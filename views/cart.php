@@ -51,13 +51,13 @@
 							</td>
 							<td>
 								<input type="number" name="idcart" value="<?=$row["idcart"]?>" hidden>
-								<input type="submit" name="update" value="Cập nhật">
+								<input type="submit" class="btn btn-info" name="update" value="Cập nhật">
 							</form>
 						</td>
 						<td>
 							<form action="" method="POST">
 								<input type="number" name="idcart" value="<?=$row["idcart"]?>" hidden>
-								<input type="submit" name="delete" value="Xóa">
+								<input type="submit" class="btn btn-danger" name="delete" value="Xóa">
 							</form>
 						</td>
 					</tr>

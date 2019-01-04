@@ -55,3 +55,8 @@ require_once("../views/header.php");
 	require_once("../views/account.php");
 	require_once("../views/footer.php");
 	?>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			document.title = 'Đăng nhập';
+		});
+	</script>

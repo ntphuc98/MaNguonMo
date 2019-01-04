@@ -56,7 +56,7 @@
 						<td><a href="../controller/c_detail.php?id=<?=$row['id']?>"><?=$row["name"]?></a></td>
 						<td><?=$row["gender"]?></td>
 						<td><?=$row["types"]?></td>
-						<td><?=$row["cost"]?></td>
+						<td><?=$row["cost"]?>đ</td>
 						<td><?=$row["amount"]?></td>
 						<td><?=$row["img"]?></td>
 						<td><?=$row["describes"]?></td>

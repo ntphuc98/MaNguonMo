@@ -84,3 +84,8 @@
 	echo "<script>$('#email').val('$email')</script>";
 	echo "<script>$('#name').val('$name')</script>";
 ?>
+<script type="text/javascript">
+		$(document).ready(function() {
+			document.title = 'Đăng ký';
+		});
+	</script>
